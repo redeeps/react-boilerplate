@@ -1,0 +1,7 @@
+{
+  "name": "@red/app",
+  "license": "MIT",
+  "description": "App",
+  "main": "index.ts",
+  "version": "1.0.0"
+}

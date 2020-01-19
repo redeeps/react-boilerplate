@@ -1,0 +1,7 @@
+{
+  "name": "@red/user",
+  "license": "MIT",
+  "description": "User module with login handler",
+  "main": "index.ts",
+  "version": "1.0.0"
+}
