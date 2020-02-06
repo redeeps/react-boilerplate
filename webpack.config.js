@@ -30,6 +30,7 @@ module.exports = {
     mainFields: ['module', 'browser', 'main'],
     alias: {
       app: path.resolve(__dirname, 'src/app/'),
+      'react-dom': '@hot-loader/react-dom',
     },
   },
   module: {
@@ -40,7 +41,9 @@ module.exports = {
         use: [
           !isProduction && {
             loader: 'babel-loader',
-            options: { plugins: ['react-hot-loader/babel'] },
+            options: {
+              plugins: ['react-hot-loader/babel'],
+            },
           },
           'ts-loader',
         ].filter(Boolean),

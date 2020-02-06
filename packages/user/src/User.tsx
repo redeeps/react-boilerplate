@@ -1,5 +1,15 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 
-export const User = () => {
-  return <div>User module </div>
+const User: React.FC<{ title: string }> = ({ title }) => {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <div>User module</div>
+    </div>
+  )
 }
+
+const HotUser = hot(User)
+
+export { HotUser as User }

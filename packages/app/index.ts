@@ -1,4 +1,4 @@
 import { App } from './src/App'
-import { configureStore } from './src/store'
+export { App }
 
-export { App, configureStore }
+export default App
