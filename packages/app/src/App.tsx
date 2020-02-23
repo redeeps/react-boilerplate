@@ -16,10 +16,17 @@ const User = importedComponent(() => import(/* webpackChunkName:'UserModule' */ 
 const App: React.FC<Props> = ({ title = 'test' }) => {
   return (
     <div className={css.main}>
-      <h1>My app - {title}</h1>
-      <div>
-        <Link to="/test">Go to user module</Link>
-      </div>
+      <h1>{title}</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/test">User module</Link>
+          </li>
+        </ul>
+      </nav>
       <Route
         path="/test"
         component={() => (
