@@ -12,9 +12,9 @@ import { configureStore } from './main.store'
 // prepare store
 const history = createBrowserHistory()
 const store = configureStore(history)
-const App = importedComponent(() => import('@red/app'))
 const Loading: React.FC = () => <div>Wczytywanie...</div>
 const render = () => {
+  const App = importedComponent(() => import(/* webpackChunkName: "AppModule" */ '@red/app'))
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>

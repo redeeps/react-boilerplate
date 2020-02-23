@@ -18,8 +18,8 @@ module.exports = {
   },
   output: {
     path: outPath,
-    filename: 'bundle.js',
-    chunkFilename: '[chunkhash].js',
+    filename: '[name].bundle.js',
+    chunkFilename: 'scripts/[name].chunk.js',
     publicPath: '/',
   },
   target: 'web',
