@@ -22,7 +22,6 @@ const App: React.FC<Props> = ({ title = 'test' }) => {
 
   useEffect(() => {
     fetch('/api/app/1', { method: 'GET' }).then(async (response) => {
-      debugger
       const newTitle = ((await response.json()) as AppResponse).title
       if (newTitle) {
         setAppTitle(newTitle)
