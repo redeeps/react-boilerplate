@@ -9,6 +9,7 @@ const proxy = {
     changeHost: true,
   },
   'GET /api/app/:id': (req, res) => {
+    // eslint-disable-next-line no-console
     console.log('app --->', req.params)
     return res.json({
       id: req.params.id,
