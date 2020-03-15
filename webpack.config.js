@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
+var apiMocker = require('mocker-api')
 
 // variables
 var isProduction = process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === 'production'
@@ -139,6 +140,11 @@ module.exports = {
     },
     stats: 'minimal',
     clientLogLevel: 'warning',
+    before(app) {
+      apiMocker(app, path.resolve('./mocker/index.js'), {
+        changeHost: true,
+      })
+    },
   },
   // https://webpack.js.org/configuration/devtool/
   devtool: isProduction ? 'hidden-source-map' : 'cheap-module-eval-source-map',

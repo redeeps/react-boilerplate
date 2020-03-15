@@ -1,0 +1,7 @@
+{
+  "name": "@red/fetch",
+  "license": "MIT",
+  "description": "Fetch",
+  "main": "index.ts",
+  "version": "1.0.0"
+}

@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route } from 'react-router'
 import { Link } from 'react-router-dom'
 import { MapStateToProps, connect } from 'react-redux'
 import { hot } from 'react-hot-loader/root'
 import importedComponent from 'react-imported-component'
 
-import { RootState } from './app.store'
+import { fetch } from '@red/fetch'
 
+import { RootState } from './app.store'
 import css from './App.css'
 
+type AppResponse = {
+  title?: string
+}
 type StateProps = { title: string }
 
 type Props = StateProps
 
 const App: React.FC<Props> = ({ title = 'test' }) => {
+  const [appTitle, setAppTitle] = useState(title)
+
+  useEffect(() => {
+    fetch('/api/app/1', { method: 'GET' }).then(async (response) => {
+      debugger
+      const newTitle = ((await response.json()) as AppResponse).title
+      if (newTitle) {
+        setAppTitle(newTitle)
+      }
+    })
+  }, [])
+
   return (
     <div className={css.main}>
-      <h1>{title}</h1>
+      <h1>{appTitle}</h1>
       <nav>
         <ul>
           <li>
